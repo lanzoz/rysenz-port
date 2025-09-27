@@ -29,7 +29,7 @@ export default function App() {
                     }}
                   >
                     <Image 
-                      src={`/portfolio/${imageName}`} 
+                      src={`/portfolio/code/${imageName}`} 
                       alt={`Portfolio image ${index + 1}`} 
                       width={1000} 
                       height={1000}
