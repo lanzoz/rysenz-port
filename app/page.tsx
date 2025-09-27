@@ -7,6 +7,7 @@ import MODELS from './components/models_cards';
 import COMMENTS from './components/comment';
 import AM from './components/aboutme';
 import PFP from '../public/pfp_2.png';
+import CODES from './components/code_cards';
 import "./globals.css"
 
 export default function Home() {
@@ -52,6 +53,7 @@ export default function Home() {
             <AM/>
             <CARD/>
             <MODELS/>
+            <CODES />
             <COMMENTS />
             <footer className=" bottom-5 z-40">Also this website made by me too - Rise</footer>
           </main>
