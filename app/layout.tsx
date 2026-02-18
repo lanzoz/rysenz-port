@@ -3,7 +3,7 @@ import "./globals.css";
 import NAV from "./components/nav"
 
 export const metadata: Metadata = {
-  title: "Rise - Rysenz",
+  title: "Puttiphong Sripanphing",
   description: "Minecraft pixelartist/developer/artist",
 };
 
