@@ -41,7 +41,7 @@ export default function Reviews() {
   };
 
   return (
-    <div className="flex flex-col bg-[#3a3a3a] w-full h-fit p-5 text-center gap-5 z-10">
+    <div className="flex flex-col w-full h-fit p-5 text-center w-full gap-5 z-10 backdrop-blur-sm bg-[#0000005b]">
       <h1 className=" not-sm:text-[1.2rem] sm:text-[2.5rem] font-bold text-white">Reviews</h1>
       
       {loading ? (
@@ -62,7 +62,7 @@ export default function Reviews() {
           {reviews.map((review, index) => (
             <motion.div
               key={review.id}
-              className="bg-[#252525] rounded-lg p-4 text-white shadow-lg"
+              className="backdrop-blur-3xl border-2 border-[#ffffff1f] bg-[rgba(255,255,255,0.1)] rounded-lg p-4 text-white shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ margin: "-50px" }}

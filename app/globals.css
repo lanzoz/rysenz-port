@@ -14,10 +14,17 @@
 body {
   font-family: "LINESeedSansTH", serif;
   color: var(--background);
-  background-size: 40px 40px;
-  background-image: radial-gradient(circle, #2c2c2c 2px, #272727 2px);
-  background-attachment: fixed;
   
+  /* กำหนดสีพื้นหลังหลัก */
+  background-color: #272727; 
+  
+  /* สร้างจุดด้วย radial-gradient */
+  background-image: radial-gradient(circle, #383838 1px, transparent 1px);
+  
+  /* สำคัญ: กำหนดระยะห่างของจุด (ความกว้าง x ความสูง) */
+  background-size: 20px 20px;
+  
+  background-attachment: fixed;
 }
 h1 {
   font-family: "LINESeedSansTH", serif;
@@ -26,5 +33,5 @@ p {
   font-family: "LINESeedSansTH", serif;
 }
 a:hover {
-  color: #ff3939;
+  color: #bc49ff;
 }

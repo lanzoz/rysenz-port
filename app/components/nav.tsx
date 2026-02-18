@@ -3,7 +3,7 @@ import { FaAngleDown } from "react-icons/fa";
 import { motion } from "motion/react";
 import { useState } from "react";
 import "../globals.css"
-import { FaBluesky, FaDiscord } from "react-icons/fa6";
+import { FaBluesky, FaDiscord, FaGithub  } from "react-icons/fa6";
 import { GiAnvilImpact } from "react-icons/gi";
 
 export default function App() {
@@ -17,8 +17,11 @@ export default function App() {
         });
     };
     return (
-        <div className=" bg-[#3a3a3a] z-50 flex flex-row fixed top-0 left-0 w-full p-5 text-center shadow-2xl items-center content-center gap-5 justify-center">
-            <a className=" flex flex-row text-center items-center text-2xl" onClick={changeShow}>Contact
+        <div className=" bg-[#00000049] z-50 flex flex-row fixed top-0 left-0 w-full p-5 text-center shadow-2xl items-center content-center justify-end gap-8">
+            <a className=" text-4xl" href="https://github.com/lanzoz"><FaGithub /></a>
+            <a className=" text-4xl"><FaBluesky /></a>
+            <a className=" text-4xl" href="https://discord.com/invite/qvVurNUAZu" target="_blank"><FaDiscord /></a>
+            {/*<a className=" flex flex-row text-center items-center text-2xl" onClick={changeShow}>Contact
                 <motion.div
                     animate={{
                         translateY: [0,5,0,5,0]
@@ -54,11 +57,11 @@ export default function App() {
                     <GiAnvilImpact /><a href="https://mcmodels.net/vendors/3/rysenz" target="blank"> MCmodel</a>
                     <FaBluesky /><a href="https://bsky.app/profile/rysenz.bsky.social" target="blank"> BlueSky</a>
                     </div>
-
+                    
                 </div>
               </motion.div>
             </div>
-            )}
+            )}*/}
         </div>
     )
 }

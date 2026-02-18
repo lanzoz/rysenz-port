@@ -1,64 +1,97 @@
 'use client'
-import Image from "next/image";
-import BANNER from '../public/banner.png';
-import { motion } from "motion/react";
-import CARD from './components/gui_cards';
-import MODELS from './components/models_cards';
+
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import COMMENTS from './components/comment';
-import AM from './components/aboutme';
-import PFP from '../public/pfp_2.png';
-import CODES from './components/code_cards';
-import "./globals.css"
+import PFP from './components/pfp';
+import CERT from './components/cert';
 
 export default function Home() {
+  const fullText = "Puttiphong Sripanphing";
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const typingSpeed = 250;
 
+  useEffect(() => {
+    const handleType = () => {
+      const shouldDelete = isDeleting;
+      setDisplayText(
+        shouldDelete 
+          ? fullText.substring(0, displayText.length - 1) 
+          : fullText.substring(0, displayText.length + 1)
+      );
+
+      if (!shouldDelete && displayText === fullText) {
+        setTimeout(() => setIsDeleting(true), 2000);
+      } 
+      else if (shouldDelete && displayText === "") {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+      }
+    };
+
+    const timer = setTimeout(handleType, isDeleting ? typingSpeed / 2 : typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting]);
   return (
-    <>
-      <motion.div
-        animate={{translateY: [20,0], opacity:[0,1]}}
-        transition={{
-            duration: 1,
-            ease: "easeInOut",
-            times: [0, 0.8]
-        }}
-      >
-        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-          <main className="flex flex-col gap-[32px] row-start-2 items-center w-full justify-center">
-            <div id="main_card" className=" w-full h-fit rounded-md overflow-hidden flex gap-10 flex-col content-center text-center items-center not-sm:p-4">
-              <Image src={BANNER} alt="Banner" className=" blur-sm not-sm:hidden"/>
-              <div className="flex flex-col not-sm:flex-col text-center sm:absolute items-center gap-10">
-                <div id="pfp" className="bg-[#3a3a3a] not-sm:hidden sm:w-30 sm:h-30 lg:w-50 lg:h-50 absolute sm:-top-20 lg:-top-20 2xl:-top-14 2xl:h-66 2xl:w-66  content-center overflow-hidden rounded-full border-double border-8 border-[#242424]">
-                  <Image 
-                    src={PFP}
-                    alt="Profile" 
-                    width={1000}
-                    height={1000}
-                    className="top-96 border-transparent w-full"
-                  />
-                  
-                </div>
-                <Image 
-                    src={PFP}
-                    alt="Profile" 
-                    width={200}
-                    height={200}
-                    className="top-96 border-transparent sm:hidden rounded-full"
-                  />
-                <div className="not-sm:text-center sm:content-center sm:items-center sm:absolute sm:top-12 sm:w-2xl lg:top-34 2xl:top-56" id="text-top">
-                  <h1 className=" not-sm:text-sm font-bold lg:text-4xl sm:text-sm">Welcome Everyone; I'm Rise</h1>
-                  <p className=" not-sm:text-sm lg:">I'm Pixelartist/Developer/CEO At Rysenz Studio</p>
-                </div>
+    <motion.div
+      initial={{ translateY: 20, opacity: 0 }}
+      animate={{ translateY: 0, opacity: 1 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
+      className="overflow-hidden"
+    >
+      <div className="flex flex-col p-8 md:p-32 items-center min-h-screen ">
+        <main className="h-full flex flex-col items-center w-full">
+          <div className="flex flex-col-reverse lg:flex-row w-full justify-center items-center gap-10">
+            <div className="flex flex-col gap-5 flex-1">
+              <h2 className="text-3xl font-medium text-gray-300">Hello I'm</h2>
+              <h1 className="text-5xl md:text-6xl font-bold min-h-[70px]">
+                {displayText}
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.8, repeat: Infinity }}
+                  className="inline-block ml-1 w-1 h-10 md:h-12 bg-lime-400"
+                />
+              </h1>
+
+              <p className="text-gray-400 text-lg">
+                I'm a Java Developer / Pixelartist / Blockbench Modeler
+              </p>
+
+              <a 
+                className="bg-[#ce53ff3d] hover:bg-[#ce53ff60] transition-colors rounded-md border border-[#ce53ff7a] w-fit px-6 py-2" 
+                href="https://discord.com/invite/qvVurNUAZu" 
+                target="_blank"
+              >
+                Let's talk with me
+              </a>
+              <div className="flex flex-wrap gap-8 mt-10">
+                <StatBox number="3" label="Pixelart/Model" />
+                <StatBox number="2" label="Minecraft/Java" />
+                <StatBox number="1" label="Web Development" />
               </div>
             </div>
-            <AM/>
-            <CARD/>
-            <MODELS/>
-            <CODES />
+            <div className="w-full lg:w-1/3 flex justify-center">
+              <PFP />
+            </div>
+          </div>
+          <div className="w-full mt-20">
+            <CERT />
+          </div>
+          <div className="w-full mt-20">
             <COMMENTS />
-            <footer className=" bottom-5 z-40">Also this website made by me too - Rise</footer>
-          </main>
-        </div>
-      </motion.div>
-    </>
+          </div>
+        </main>
+      </div>
+    </motion.div>
+  );
+}
+function StatBox({ number, label }: { number: string; label: string }) {
+  return (
+    <div className="flex flex-col">
+      <h3 className="text-3xl font-extrabold">{number} Years <span className="text-lime-400">+</span></h3>
+      <p className="text-sm text-gray-400">{label} <span className="text-lime-400 font-bold">Experience</span></p>
+    </div>
   );
 }
