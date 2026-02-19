@@ -41,8 +41,8 @@ export default function Reviews() {
   };
 
   return (
-    <div className="flex flex-col w-full h-fit p-5 text-center w-full gap-5 z-10 backdrop-blur-sm bg-[#0000005b]">
-      <h1 className=" not-sm:text-[1.2rem] sm:text-[2.5rem] font-bold text-white">Reviews</h1>
+    <div className="flex flex-col h-fit p-5 text-center w-full gap-5 z-10">
+      <h1 className=" not-sm:text-[1.2rem] sm:text-[2.5rem] font-bold text-lime-400">Reviews</h1>
       
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

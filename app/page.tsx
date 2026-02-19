@@ -68,20 +68,36 @@ export default function Home() {
               </a>
               <div className="flex flex-wrap gap-8 mt-10">
                 <StatBox number="3" label="Pixelart/Model" />
-                <StatBox number="2" label="Minecraft/Java" />
+                <StatBox number="8" label="Minecraft Java" />
                 <StatBox number="1" label="Web Development" />
+                <StatBox number="1" label="Java Development" />
               </div>
             </div>
             <div className="w-full lg:w-1/3 flex justify-center">
               <PFP />
             </div>
           </div>
-          <div className="w-full mt-20">
+          <div className=" w-full bg-[#00000038] text-center p-2 content-center items-center flex flex-col">
+            <h1 className=" not-sm:text-[1.2rem] sm:text-[2.5rem] font-bold text-lime-400 underline">
+              Current Projects
+            </h1>
+            <div className=" flex flex-row justify-center gap-10 p-5 w-full max-w-5xl">
+              <h1 className=" text-4xl ">HighGround</h1>
+              <h1 className=" text-4xl ">LocoChat</h1>
+              <h1 className=" text-4xl ">SoulBound</h1>
+            </div>
+            <h1 className=" not-sm:text-[1.2rem] sm:text-[2.5rem] font-bold text-lime-400 underline">
+              Certs
+            </h1>
+            <div className="w-full">
             <CERT />
+            </div>
+            <div className="w-full">
+              <COMMENTS />
+            </div>
           </div>
-          <div className="w-full mt-20">
-            <COMMENTS />
-          </div>
+          
+          
         </main>
       </div>
     </motion.div>
