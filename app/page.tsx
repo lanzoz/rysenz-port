@@ -78,7 +78,7 @@ export default function Home() {
             </div>
           </div>
           <div className=" w-full bg-[#00000038] text-center p-2 content-center items-center flex flex-col">
-            <h1 className=" not-sm:text-[1.2rem] sm:text-[2.5rem] font-bold text-lime-400 underline">
+            <h1 className=" not-sm:text-[1.2rem] sm:text-[2.5rem] font-bold text-lime-400">
               Current Projects
             </h1>
             <div className=" flex flex-row justify-center gap-10 p-5 w-full max-w-5xl">
@@ -86,7 +86,7 @@ export default function Home() {
               <h1 className=" text-4xl ">LocoChat</h1>
               <h1 className=" text-4xl ">SoulBound</h1>
             </div>
-            <h1 className=" not-sm:text-[1.2rem] sm:text-[2.5rem] font-bold text-lime-400 underline">
+            <h1 className=" not-sm:text-[1.2rem] sm:text-[2.5rem] font-bold text-lime-400">
               Certs
             </h1>
             <div className="w-full">
