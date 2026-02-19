@@ -5,10 +5,13 @@ import C1 from '../../public/cert/cert1.png';
 import C2 from '../../public/cert/cert2.png';
 import C3 from '../../public/cert/cert3.png';
 import C4 from '../../public/cert/cert4.png';
+import C5 from '../../public/cert/cert5.png';
+import C6 from '../../public/cert/cert6.png';
+import C7 from '../../public/cert/cert7.png';
 import Image from "next/image";
 
 // 1. เบิ้ลรูปเป็น 3 ชุด (C1-C4, C1-C4, C1-C4)
-const certs = [C1, C2, C3, C4];
+const certs = [C1, C2, C3, C4, C5, C6, C7];
 const tripleCerts = [...certs, ...certs, ...certs]; 
 
 export default function App() {
